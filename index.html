@@ -16,8 +16,13 @@
       <img src="logo.png" alt="Aqua logo">
       <span>Aqua Driving School</span>
     </a>
-    <button class="menu-btn" onclick="document.querySelector('.nav').classList.toggle('show')">Menu ☰</button>
-    <nav class="nav">
+
+    <!-- ✅ FIXED MENU BUTTON (removed onclick) -->
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+      Menu ☰
+    </button>
+
+    <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="services.html">Our Services</a>
       <a href="reviews.html">Reviews</a>
@@ -50,13 +55,12 @@
     <div class="hero-text">
       <div class="hero-tag">Dublin • Meath • Kildare</div>
       <h1>Automatic & Manual Driving Lessons</h1>
-     
+
       <div class="hero-actions">
         <a class="btn-book-big" href="book.html">Book a lesson</a>
       </div>
     </div>
     <div class="hero-car">
-      <!-- replace car-hero.png with your own car image -->
       <img src="car-hero.png" alt="Aqua automatic car">
     </div>
   </div>
@@ -69,7 +73,6 @@
       <a class="chip" href="services.html#pretest">Pre-Test Lessons</a>
       <a class="chip" href="services.html#carhire">Reduced EDT Lessons</a>
       <a class="chip" href="services.html#carhire">Automatic Car Hire</a>
-      
     </div>
   </div>
 </section>
@@ -96,18 +99,21 @@
         <p class="price">From €575</p>
         <p><a class="btn-yellow" href="services.html#edt">View details</a></p>
       </div>
+
       <div class="card">
         <h3>Pre-Test Lessons(2hrs)</h3>
         <p>Mock tests and focused coaching on test routes in Mulhuddart & Finglas.</p>
         <p class="price">From €100</p>
         <p><a class="btn-yellow" href="services.html#pretest">View details</a></p>
       </div>
+
       <div class="card">
         <h3>Reduced EDT 6 Lessons(6hrs)</h3>
         <p>Reduced EDT - 6 Hour Course for Eligible Foreign Licence Holders.</p>
         <p class="price">From €290</p>
         <p><a class="btn-yellow" href="services.html#pretest">View details</a></p>
       </div>
+
       <div class="card">
         <h3>Automatic Car Hire (Test Day)</h3>
         <p>Car + Pre-test.</p>
@@ -118,24 +124,37 @@
   </div>
 </section>
 
+<!-- ✅ FIXED MENU SCRIPT (more reliable on mobile) -->
 <script>
-document.querySelectorAll('.menu-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>document.querySelector('.nav').classList.toggle('show'));
-});
+  const btn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('.nav');
+
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      btn.setAttribute('aria-expanded', nav.classList.contains('show') ? 'true' : 'false');
+    });
+
+    // close menu after clicking a link (mobile friendly)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('show');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 </script>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-columns">
 
-    <!-- 1️⃣ Aqua Logo + Tagline -->
     <div class="footer-column footer-left">
       <img src="logo.png" alt="Aqua Driving School" class="footer-logo">
       <p class="footer-school">Aqua Driving School</p>
       <p class="footer-tagline">Pass your driving test first time,<br>don’t miss your chance!</p>
     </div>
 
-    <!-- 2️⃣ Address -->
     <div class="footer-column footer-address">
       <h4>Our Address:</h4>
       <p>📍 Blanchardstown, Dublin 15, Co. Dublin.</p>
@@ -144,21 +163,19 @@ document.querySelectorAll('.menu-btn').forEach(btn=>{
       <p>⏰ 08:00 AM – 20:00 PM</p>
     </div>
 
-    <!-- 3️⃣ Terms + Social -->
     <div class="footer-column footer-terms">
       <a href="terms.html" class="footer-link">Terms and Conditions</a>
       <p class="social-title">Follow Us on Social Media</p>
       <div class="footer-social">
-        <a href="https://www.instagram.com/aquadrivingschoolireland?igsh=YjZhMmlreXR5eGl6" target="_blank">
+        <a href="https://www.instagram.com/aquadrivingschoolireland?igsh=YjZhMmlreXR5eGl6" target="_blank" rel="noopener">
           <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com" target="_blank">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener">
           <i class="fa-brands fa-facebook-f"></i>
         </a>
       </div>
     </div>
 
-    <!-- 4️⃣ RSA / ADI Approved -->
     <div class="footer-column footer-rsa">
       <img src="rsa-logo.png" alt="ADI / RSA Approved" class="footer-rsa-logo">
     </div>
@@ -169,8 +186,6 @@ document.querySelectorAll('.menu-btn').forEach(btn=>{
     © 2025 Aqua Driving School • All rights reserved
   </div>
 </footer>
-
-<!-- WhatsApp Floating Button -->
 <a class="whatsapp"
    href="https://wa.me/353858035600?text=Hi%20Aqua%20Driving%20School%2C%20I%27d%20like%20to%20book%20a%20lesson">
   <svg viewBox="0 0 32 32">
