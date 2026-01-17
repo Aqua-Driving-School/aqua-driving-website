@@ -33,8 +33,8 @@
     </p>
 
     <div class="book-form-wrapper">
-      <form name="book-lessons" method="POST" data-netlify="true" action="success.html">
-        <input type="hidden" name="form-name" value="book-lessons">
+      <form action="https://formspree.io/f/xykkywaa" method="POST">
+      <input type="hidden" name="_redirect" value="https://aquadrivingschool.ie/thank-you.html">
 
         <label>
           <select name="service" required>
@@ -91,9 +91,12 @@
 </section>
 
 <script>
-document.querySelectorAll('.menu-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>document.querySelector('.nav').classList.toggle('show'));
-});
+  const btn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('.nav');
+  
+  if (btn && nav) {
+    btn.addEventListener('click', () => nav.classList.toggle('show'));
+  }
 </script>
 <!-- FOOTER -->
 <footer class="site-footer">

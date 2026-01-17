@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Thank You | Aqua Driving School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img src="logo.png" alt="Aqua logo">
+      <span>Aqua Driving School</span>
+    </a>
+
+    <button class="menu-btn" onclick="document.querySelector('.nav').classList.toggle('show')">
+      Menu ☰
+    </button>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Our Services</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="book.html">Book</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container card" style="text-align:center; max-width:700px;">
+    <h1>✅ Thank You!</h1>
+    <p style="font-size:18px; margin-top:10px;">
+      Your booking request has been sent successfully.
+    </p>
+    <p>
+      We will contact you shortly to confirm your lesson.
+    </p>
+
+    <div style="margin-top:25px;">
+      <a href="index.html" class="btn-book-big">Back to Home</a>
+      <br><br>
+      <a href="book.html" class="btn-yellow">Book Another Lesson</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-columns">
+
+    <div class="footer-column footer-left">
+      <img src="logo.png" alt="Aqua Driving School" class="footer-logo">
+      <p class="footer-school">Aqua Driving School</p>
+      <p class="footer-tagline">
+        Pass your driving test first time,<br>don’t miss your chance!
+      </p>
+    </div>
+
+    <div class="footer-column footer-address">
+      <h4>Our Address:</h4>
+      <p>📍 Blanchardstown, Dublin 15, Co. Dublin.</p>
+      <p>📞 +353 858035600</p>
+      <p>✉️ aquadrivings@gmail.com</p>
+      <p>⏰ 08:00 AM – 20:00 PM</p>
+    </div>
+
+    <div class="footer-column footer-terms">
+      <a href="terms.html" class="footer-link">Terms and Conditions</a>
+      <p class="social-title">Follow Us on Social Media</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/aquadrivingschoolireland" target="_blank">
+          Instagram
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Aqua Driving School • All rights reserved
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.menu-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=> {
+    document.querySelector('.nav').classList.toggle('show');
+  });
+});
+</script>
+
+</body>
+</html>
